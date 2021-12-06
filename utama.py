@@ -10,7 +10,7 @@ def loaddata (arg1):
         for idx, item in enumerate(tmp):
             print('%-2s | %-30s | %-10s | %-7s'%(idx,item['nama'],item['nim'],item[arg1]))
         print('-'*80)
-def pembayaran (arg1):
+def pembayaran(arg1):
     os.system('cls')
     loaddata(arg1)
     with open ('db.json','r')as opdb:
@@ -41,7 +41,7 @@ def hapus():
     with open ('db.json','w') as delete :
         json.dump(tmp,delete)
     loaddata('st1')   
-def menu():
+def menu(arg1):
     while True :
         menu = """
         1.Tampilkan Data
@@ -53,9 +53,9 @@ def menu():
         print (menu)
         inputan = int(input('masukkan Pilihan : '))
         if inputan == 1 :
-            loaddata1()
+            loaddata(arg1)
         elif inputan == 2 :
-            pembayaran1()
+            pembayaran()
         elif inputan == 3 :
             tambah()
         elif inputan == 4 :
@@ -63,10 +63,10 @@ def menu():
         elif inputan == 5 :
             exit()
 
-def pembayaran1():
+def menuawal():
     os.system('cls')
     print("Pilih Semester")
-    menu = """
+    lists = """
     1.semester 1
     2.semester 2
     3.semester 3
@@ -77,59 +77,23 @@ def pembayaran1():
     8.semester 8
     """
     
-    print(menu)
+    print(lists)
     choice = input('Menu: ')
     if choice=='1':
-        pembayaran('st1')
+        menu('st1')
     elif choice=='2':
-        pembayaran('st2')
+        menu('st2')
     elif choice=='3':
-        pembayaran('st3')
+        menu('st3')
     elif choice=='4':
-        pembayaran('st4')
+        menu('st4')
     elif choice=='5':
-        pembayaran('st5')
+        menu('st5')
     elif choice=='6':
-        pembayaran('st6')
+        menu('st6')
     elif choice=='7':
-        pembayaran('st7')
+        menu('st7')
     elif choice=='8':
-        pembayaran('st8')
+        menu('st8')
     else:
         pass
-
-def loaddata1():
-    os.system('cls')
-    print("Pilih Semester")
-    menu = """
-    1.semester 1
-    2.semester 2
-    3.semester 3
-    4.semester 4
-    5.semester 5
-    6.semester 6
-    7.semester 7
-    8.semester 8
-    """
-
-    print(menu)
-    choice = input('Menu: ')
-    if choice=='1':
-        loaddata('st1')
-    elif choice=='2':
-        loaddata('st2')
-    elif choice=='3':
-        loaddata('st3')
-    elif choice=='4':
-        loaddata('st4')
-    elif choice=='5':
-        loaddata('st5')
-    elif choice=='6':
-        loaddata('st6')
-    elif choice=='7':
-        loaddata('st7')
-    elif choice=='8':
-        loaddata('st8')
-    else:
-        pass
-

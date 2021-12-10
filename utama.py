@@ -66,8 +66,15 @@ def pembayaran(arg1):
         showdata(arg1)
         with open ('db.json','r')as opdb:
             tmp = json.load(opdb)
+            print ('UKT 1 Semester Rp 4.500.000')
             inputan = int(input('masukkan no mahasiswa : '))
-            tmp [inputan][arg1]="lunas"
+            inp1 = int(input('Nominal Uang Yang dibayarkan : '))
+            rumus = inp1 - 4500000
+            if inp1 >= 4500000:
+                print('kembalian =', rumus)
+                tmp [inputan][arg1]="lunas"
+            else:
+                print ('uang yang dibayarkan kurang dari nominal')
         with open('db.json', 'w') as f:
             f.write(json.dumps(tmp))
         inp = input('apakah masih ada lagi? [y/t]').lower()
